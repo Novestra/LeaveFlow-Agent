@@ -2,6 +2,13 @@
 
 Activity monitoring and time tracking desktop agent for Windows. Part of the LeaveFlow HR Management platform.
 
+## Download
+
+| Version | Environment | Download |
+|---------|-------------|----------|
+| v2.1.0 | **Production** | [LeaveFlow-Agent-Prod-v2.1.0.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.1.0/LeaveFlow-Agent-Prod-v2.1.0.zip) |
+| v2.1.0 | **Development** | [LeaveFlow-Agent-Dev-v2.1.0.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.1.0/LeaveFlow-Agent-Dev-v2.1.0.zip) |
+
 ## Features
 
 - Automatic activity tracking (foreground application monitoring)
@@ -11,16 +18,9 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 - Local data storage with batch sync to server
 - System tray integration
 
-## Download
-
-Go to [Releases](https://github.com/Novestra/LeaveFlow-Agent/releases) and download the appropriate version:
-
-- **LeaveFlow-Agent-Prod** - For production use
-- **LeaveFlow-Agent-Dev** - For development/testing
-
 ## Installation
 
-1. Download the ZIP file from the latest release
+1. Download the ZIP file for your environment from the table above
 2. Extract to a folder (e.g., `C:\LeaveFlow\`)
 3. Run `LeaveFlow.DesktopAgent.exe`
 4. Login with your LeaveFlow credentials
