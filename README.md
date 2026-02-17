@@ -6,8 +6,8 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 
 | Version | Environment | Download |
 |---------|-------------|----------|
-| v2.1.0 | **Production** | [LeaveFlow-Agent-Prod-v2.1.0.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.1.0/LeaveFlow-Agent-Prod-v2.1.0.zip) |
-| v2.1.0 | **Development** | [LeaveFlow-Agent-Dev-v2.1.0.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.1.0/LeaveFlow-Agent-Dev-v2.1.0.zip) |
+| v2.2.0 | **Production** | [LeaveFlow-Agent-Prod-v2.2.0.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.2.0/LeaveFlow-Agent-Prod-v2.2.0.zip) |
+| v2.2.0 | **Development** | [LeaveFlow-Agent-Dev-v2.2.0.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.2.0/LeaveFlow-Agent-Dev-v2.2.0.zip) |
 
 ## Features
 
@@ -15,6 +15,10 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 - Idle detection with auto-pause
 - Session management (start, pause, resume, finish)
 - Mood check prompts
+- Work reminder notifications (configurable interval)
+- Automatic update checker
+- Settings window (API URL, work reminder interval)
+- Automatic re-login on token expiry
 - Local data storage with batch sync to server
 - System tray integration
 
