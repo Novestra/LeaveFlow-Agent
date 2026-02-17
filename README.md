@@ -43,7 +43,6 @@ The `appsettings.json` file contains configurable settings:
 | `Api:BaseUrl` | (pre-configured) | API server URL |
 | `Api:TimeoutSeconds` | 30 | API request timeout |
 | `Tracking:ForegroundPollIntervalSeconds` | 10 | How often to check active window |
-| `Tracking:ScreenshotIntervalMinutes` | 10 | Screenshot capture interval |
 | `Tracking:IdleWarningMinutes` | 5 | Idle warning threshold |
 | `Tracking:IdleAutoPasseMinutes` | 10 | Auto-pause after idle |
 | `Tracking:SyncIntervalSeconds` | 60 | Data sync interval |
