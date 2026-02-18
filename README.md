@@ -23,6 +23,30 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 - **Local Data Storage** — LiteDB-backed offline storage with automatic batch sync to server
 - **System Tray Integration** — Runs minimized in system tray with status icons (idle/working/paused)
 
+## Changelog
+
+### v2.3.0 — Bug Fixes
+- **Fixed random logout during active sessions** — Concurrent API calls (usage sync + screenshot upload) could race to refresh tokens simultaneously, causing the second thread to use a revoked refresh token and trigger a logout. Added SemaphoreSlim lock to serialize refresh attempts with stale-token detection.
+- **Fixed multiple agent windows after inactivity pause** — After logout/reauth cycles, hidden StatusWindow instances retained active event subscriptions, causing duplicate pause popups and multiple windows. Added proper Cleanup() and ForceClose() lifecycle management.
+- **Fixed Start Work button visible during active session** — The Start button remained visible in the Working state due to incorrect visibility logic. Now correctly shows Start only when idle, Pause only when active, Resume only when paused.
+- **Fixed screenshot upload triggering immediate logout on 401** — Screenshot upload had no token refresh retry, immediately clearing auth on any 401 response. Added retry loop with lock-protected token refresh.
+- **Fixed token expiry timezone mismatch** — LiteDB stores DateTime in Local time but expiry was compared against UTC, causing premature expiry detection. Now converts to UTC before comparison with a 2-minute buffer.
+
+### v2.2.0 — Features
+- Automatic re-login when token expires (seamless token refresh)
+- Update checker with GitHub release version comparison
+- Screenshot folder cleanup on session end
+- Work reminder notifications with configurable interval
+- Settings window for API URL and reminder configuration
+
+### v2.1.0
+- Updated API URLs for new infrastructure
+
+### v2.0.0 — Initial Release
+- Activity tracking, idle detection, session management
+- Mood check prompts, system tray integration
+- Local LiteDB storage with batch sync
+
 ## Installation
 
 1. Download the ZIP file for your environment from the table above
