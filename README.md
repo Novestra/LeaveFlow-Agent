@@ -35,7 +35,6 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 ### v2.2.0 — Features
 - Automatic re-login when token expires (seamless token refresh)
 - Update checker with GitHub release version comparison
-- Screenshot folder cleanup on session end
 - Work reminder notifications with configurable interval
 - Settings window for API URL and reminder configuration
 
