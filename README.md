@@ -69,5 +69,4 @@ The `appsettings.json` file contains configurable settings:
 | `Tracking:ForegroundPollIntervalSeconds` | 10 | How often to check active window |
 | `Tracking:IdleWarningMinutes` | 5 | Idle warning threshold |
 | `Tracking:IdleAutoPasseMinutes` | 10 | Auto-pause after idle |
-| `Tracking:ScreenshotIntervalMinutes` | 10 | Screenshot capture interval |
 | `Tracking:SyncIntervalSeconds` | 60 | Data sync interval |
