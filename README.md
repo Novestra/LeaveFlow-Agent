@@ -11,16 +11,17 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 
 ## Features
 
-- Automatic activity tracking (foreground application monitoring)
-- Idle detection with auto-pause
-- Session management (start, pause, resume, finish)
-- Mood check prompts
-- Work reminder notifications (configurable interval)
-- Automatic update checker
-- Settings window (API URL, work reminder interval)
-- Automatic re-login on token expiry
-- Local data storage with batch sync to server
-- System tray integration
+- **Activity Tracking** — Monitors foreground application usage with configurable polling intervals
+- **Screenshot Capture** — Periodic screenshots synced to server for activity verification
+- **Idle Detection** — Detects inactivity with warning prompt and auto-pause after configurable threshold
+- **Session Management** — Start, pause, resume, and finish work sessions with system tray controls
+- **Mood Check Prompts** — Periodic mood surveys during active sessions
+- **Work Reminder Notifications** — Configurable reminders to stay on track (adjustable interval in Settings)
+- **Automatic Update Checker** — Notifies when a new version is available on GitHub
+- **Automatic Token Refresh** — Thread-safe re-authentication with no session interruptions
+- **Settings Window** — Configure API URL and work reminder interval from the UI
+- **Local Data Storage** — LiteDB-backed offline storage with automatic batch sync to server
+- **System Tray Integration** — Runs minimized in system tray with status icons (idle/working/paused)
 
 ## Installation
 
@@ -45,4 +46,5 @@ The `appsettings.json` file contains configurable settings:
 | `Tracking:ForegroundPollIntervalSeconds` | 10 | How often to check active window |
 | `Tracking:IdleWarningMinutes` | 5 | Idle warning threshold |
 | `Tracking:IdleAutoPasseMinutes` | 10 | Auto-pause after idle |
+| `Tracking:ScreenshotIntervalMinutes` | 10 | Screenshot capture interval |
 | `Tracking:SyncIntervalSeconds` | 60 | Data sync interval |
