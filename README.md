@@ -6,8 +6,8 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 
 | Version | Environment | Download |
 |---------|-------------|----------|
-| v2.3.1 | **Production** | [LeaveFlow-Agent-Prod-v2.3.1.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.1/LeaveFlow-Agent-Prod-v2.3.1.zip) |
-| v2.3.1 | **Development** | [LeaveFlow-Agent-Dev-v2.3.1.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.1/LeaveFlow-Agent-Dev-v2.3.1.zip) |
+| v2.3.3 | **Production** | [LeaveFlow-Agent-Prod-v2.3.3.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.3/LeaveFlow-Agent-Prod-v2.3.3.zip) |
+| v2.3.3 | **Development** | [LeaveFlow-Agent-Dev-v2.3.3.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.3/LeaveFlow-Agent-Dev-v2.3.3.zip) |
 
 ## Features
 
@@ -17,6 +17,7 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 - **Session Management** — Start, pause, resume, and finish work sessions with system tray controls
 - **Mood Check Prompts** — Periodic mood surveys during active sessions
 - **Work Reminder Notifications** — Configurable reminders to stay on track (adjustable interval in Settings)
+- **Wellness Reminder Toasts** — Non-blocking toast notifications during active sessions at server-configured intervals
 - **Automatic Update Checker** — Notifies when a new version is available on GitHub
 - **Automatic Token Refresh** — Thread-safe re-authentication with no session interruptions
 - **Settings Window** — Configure API URL and work reminder interval from the UI
@@ -24,6 +25,12 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 - **System Tray Integration** — Runs minimized in system tray with status icons (idle/working/paused)
 
 ## Changelog
+
+### v2.3.3 — Wellness Reminder Toasts
+- **Wellness reminder toast notifications** — Non-blocking toast notifications appear during active work sessions at each reminder's configured interval
+- Reminders are fetched from the API on session start and stop when session is paused/finished
+- Catppuccin dark theme toast with green accent, auto-dismisses after 30 seconds
+- Only one toast shown at a time to avoid notification spam
 
 ### v2.3.1 — Bug Fix
 - **Fixed session timer showing wall-clock time instead of active time** — The timer calculated elapsed time as `now - sessionStart` which included all paused periods. After pause/resume cycles (idle, screen lock, manual pause) the displayed time became inflated (e.g. 8h shown vs 1h52m actual). Now correctly accumulates only active segments using server's `TotalDurationSeconds`.
