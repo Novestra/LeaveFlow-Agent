@@ -6,8 +6,8 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 
 | Version | Environment | Download |
 |---------|-------------|----------|
-| v2.3.0 | **Production** | [LeaveFlow-Agent-Prod-v2.3.0.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.0/LeaveFlow-Agent-Prod-v2.3.0.zip) |
-| v2.3.0 | **Development** | [LeaveFlow-Agent-Dev-v2.3.0.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.0/LeaveFlow-Agent-Dev-v2.3.0.zip) |
+| v2.3.1 | **Production** | [LeaveFlow-Agent-Prod-v2.3.1.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.1/LeaveFlow-Agent-Prod-v2.3.1.zip) |
+| v2.3.1 | **Development** | [LeaveFlow-Agent-Dev-v2.3.1.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.1/LeaveFlow-Agent-Dev-v2.3.1.zip) |
 
 ## Features
 
@@ -24,6 +24,9 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 - **System Tray Integration** — Runs minimized in system tray with status icons (idle/working/paused)
 
 ## Changelog
+
+### v2.3.1 — Bug Fix
+- **Fixed session timer showing wall-clock time instead of active time** — The timer calculated elapsed time as `now - sessionStart` which included all paused periods. After pause/resume cycles (idle, screen lock, manual pause) the displayed time became inflated (e.g. 8h shown vs 1h52m actual). Now correctly accumulates only active segments using server's `TotalDurationSeconds`.
 
 ### v2.3.0 — Bug Fixes
 - **Fixed random logout during active sessions** — Concurrent API calls (usage sync + screenshot upload) could race to refresh tokens simultaneously, causing the second thread to use a revoked refresh token and trigger a logout. Added SemaphoreSlim lock to serialize refresh attempts with stale-token detection.
