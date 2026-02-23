@@ -6,7 +6,7 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 
 | Version | Environment | Download |
 |---------|-------------|----------|
-| v2.3.3 | **Production** | [LeaveFlow-Agent-Prod-v2.3.3.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.3/LeaveFlow-Agent-Prod-v2.3.3.zip) |
+| v2.3.4 | **Production** | [LeaveFlow-Agent-Prod-v2.3.4.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.4/LeaveFlow-Agent-Prod-v2.3.4.zip) |
 | v2.3.3 | **Development** | [LeaveFlow-Agent-Dev-v2.3.3.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.3/LeaveFlow-Agent-Dev-v2.3.3.zip) |
 
 ## Features
@@ -25,6 +25,11 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 - **System Tray Integration** — Runs minimized in system tray with status icons (idle/working/paused)
 
 ## Changelog
+
+### v2.3.4 — Idle Detection Overflow Fix
+- **Fixed TickCount overflow in idle detection** — `Environment.TickCount` wraps around after ~24.9 days of uptime, causing `GetIdleTime()` to return negative values and break idle detection. Changed to `uint` arithmetic with unsigned subtraction so the wrap-around is handled correctly.
+- Extracted pure logic from agent services into testable internal methods
+- Added 74+ unit tests covering idle detection, session management, activity tracking, and update checking
 
 ### v2.3.3 — Wellness Reminder Toasts
 - **Wellness reminder toast notifications** — Non-blocking toast notifications appear during active work sessions at each reminder's configured interval
