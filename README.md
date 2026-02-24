@@ -6,8 +6,8 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 
 | Version | Environment | Download |
 |---------|-------------|----------|
-| v2.3.5 | **Production** | [LeaveFlow-Agent-Prod-v2.3.5.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.5/LeaveFlow-Agent-Prod-v2.3.5.zip) |
-| v2.3.5 | **Development** | [LeaveFlow-Agent-Dev-v2.3.5.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.5/LeaveFlow-Agent-Dev-v2.3.5.zip) |
+| v2.3.6 | **Production** | [LeaveFlow-Agent-Prod-v2.3.6.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.6/LeaveFlow-Agent-Prod-v2.3.6.zip) |
+| v2.3.6 | **Development** | [LeaveFlow-Agent-Dev-v2.3.6.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.6/LeaveFlow-Agent-Dev-v2.3.6.zip) |
 
 ## Features
 
@@ -25,6 +25,11 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 - **System Tray Integration** — Runs minimized in system tray with status icons (idle/working/paused)
 
 ## Changelog
+
+### v2.3.6 — Settings UI & Error Log API Key
+- **Agent Error Log API Key display** — Settings window now shows the masked Error Log API Key used for error reporting via `X-Agent-Error-Key` header
+- **Agent version reporting** — Version is now sent with session data and displayed in the web dashboard next to sync time
+- Settings window height increased to accommodate new fields
 
 ### v2.3.5 — Sleep/Wake Auto-Pause Fix
 - **Fixed auto-pause not reaching server during sleep/hibernate** — The fire-and-forget API call could fail silently if the network shut down before completion, leaving the server session as Working through the entire sleep period
