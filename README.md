@@ -6,8 +6,8 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 
 | Version | Environment | Download |
 |---------|-------------|----------|
-| v2.3.4 | **Production** | [LeaveFlow-Agent-Prod-v2.3.4.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.4/LeaveFlow-Agent-Prod-v2.3.4.zip) |
-| v2.3.4 | **Development** | [LeaveFlow-Agent-Dev-v2.3.4.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.4/LeaveFlow-Agent-Dev-v2.3.4.zip) |
+| v2.3.5 | **Production** | [LeaveFlow-Agent-Prod-v2.3.5.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.5/LeaveFlow-Agent-Prod-v2.3.5.zip) |
+| v2.3.5 | **Development** | [LeaveFlow-Agent-Dev-v2.3.5.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.5/LeaveFlow-Agent-Dev-v2.3.5.zip) |
 
 ## Features
 
@@ -25,6 +25,12 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 - **System Tray Integration** — Runs minimized in system tray with status icons (idle/working/paused)
 
 ## Changelog
+
+### v2.3.5 — Sleep/Wake Auto-Pause Fix
+- **Fixed auto-pause not reaching server during sleep/hibernate** — The fire-and-forget API call could fail silently if the network shut down before completion, leaving the server session as Working through the entire sleep period
+- Added Resume handler that verifies pause state on server after system wake
+- Added SessionUnlock handler with same verification
+- Sleep recovery: forces auto-pause if Suspend handler failed entirely
 
 ### v2.3.4 — Idle Detection Overflow Fix
 - **Fixed TickCount overflow in idle detection** — `Environment.TickCount` wraps around after ~24.9 days of uptime, causing `GetIdleTime()` to return negative values and break idle detection. Changed to `uint` arithmetic with unsigned subtraction so the wrap-around is handled correctly.
