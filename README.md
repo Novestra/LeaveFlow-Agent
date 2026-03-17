@@ -6,7 +6,7 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 
 | Version | Environment | Download |
 |---------|-------------|----------|
-| v2.4.1 | **Production** | [LeaveFlow-Agent-Prod-v2.4.1.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.4.1/LeaveFlow-Agent-Prod-v2.4.1.zip) |
+| v2.4.2 | **Production** | [LeaveFlow-Agent-Prod-v2.4.2.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.4.2/LeaveFlow-Agent-Prod-v2.4.2.zip) |
 | v2.3.6 | **Development** | [LeaveFlow-Agent-Dev-v2.3.6.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.6/LeaveFlow-Agent-Dev-v2.3.6.zip) |
 
 ## Features
@@ -28,7 +28,7 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 
 ## Changelog
 
-### v2.4.1 — Version Fix & Latest Changes
+### v2.4.2 — Version Fix & Latest Changes
 - **Fixed version display** — Agent was showing v2.0.0 instead of the actual version number
 - Includes all v2.4.0 changes (shift-end auto-restart, midnight split, server config sync)
 
