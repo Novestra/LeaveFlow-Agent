@@ -6,7 +6,7 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 
 | Version | Environment | Download |
 |---------|-------------|----------|
-| v2.3.6 | **Production** | [LeaveFlow-Agent-Prod-v2.3.6.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.6/LeaveFlow-Agent-Prod-v2.3.6.zip) |
+| v2.4.0 | **Production** | [LeaveFlow-Agent-Prod-v2.4.0.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.4.0/LeaveFlow-Agent-Prod-v2.4.0.zip) |
 | v2.3.6 | **Development** | [LeaveFlow-Agent-Dev-v2.3.6.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.6/LeaveFlow-Agent-Dev-v2.3.6.zip) |
 
 ## Features
@@ -22,9 +22,16 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 - **Automatic Token Refresh** — Thread-safe re-authentication with no session interruptions
 - **Settings Window** — Configure API URL and work reminder interval from the UI
 - **Local Data Storage** — LiteDB-backed offline storage with automatic batch sync to server
+- **Shift End Auto-Restart** — Automatically finishes session at configured shift end time and starts a new session after a delay
 - **System Tray Integration** — Runs minimized in system tray with status icons (idle/working/paused)
 
 ## Changelog
+
+### v2.4.0 — Shift End Auto-Restart
+- **Shift End Auto-Restart** — Agent automatically finishes the session at the configured shift end time and starts a new session after a configurable delay (1-10 minutes). Prevents sessions from running overnight and leaking activity data into the next day.
+- **DPI Scaling Fix** — Forms now scale properly on high-DPI displays when running in debug mode
+- Configure `ShiftEndTime` (e.g., "17:30") and `AutoRestartDelayMinutes` (default: 2) in Productivity Settings via the admin panel
+- Feature is disabled by default (`ShiftEndTime` = null). Existing agents continue to work — they simply ignore the new config fields
 
 ### v2.3.6 — Settings UI & Error Log API Key
 - **Agent Error Log API Key display** — Settings window now shows the masked Error Log API Key used for error reporting via `X-Agent-Error-Key` header
