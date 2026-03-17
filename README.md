@@ -6,7 +6,7 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 
 | Version | Environment | Download |
 |---------|-------------|----------|
-| v2.4.0 | **Production** | [LeaveFlow-Agent-Prod-v2.4.0.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.4.0/LeaveFlow-Agent-Prod-v2.4.0.zip) |
+| v2.4.1 | **Production** | [LeaveFlow-Agent-Prod-v2.4.1.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.4.1/LeaveFlow-Agent-Prod-v2.4.1.zip) |
 | v2.3.6 | **Development** | [LeaveFlow-Agent-Dev-v2.3.6.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.6/LeaveFlow-Agent-Dev-v2.3.6.zip) |
 
 ## Features
@@ -23,9 +23,14 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 - **Settings Window** — Configure API URL and work reminder interval from the UI
 - **Local Data Storage** — LiteDB-backed offline storage with automatic batch sync to server
 - **Shift End Auto-Restart** — Automatically finishes session at configured shift end time and starts a new session after a delay
+- **Midnight Session Split** — Automatically splits sessions at midnight to prevent activity leaking across dates
 - **System Tray Integration** — Runs minimized in system tray with status icons (idle/working/paused)
 
 ## Changelog
+
+### v2.4.1 — Version Fix & Latest Changes
+- **Fixed version display** — Agent was showing v2.0.0 instead of the actual version number
+- Includes all v2.4.0 changes (shift-end auto-restart, midnight split, server config sync)
 
 ### v2.4.0 — Shift End Auto-Restart
 - **Shift End Auto-Restart** — Agent automatically finishes the session at the configured shift end time and starts a new session after a configurable delay (1-10 minutes). Prevents sessions from running overnight and leaking activity data into the next day.
