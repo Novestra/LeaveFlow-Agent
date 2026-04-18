@@ -6,7 +6,7 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 
 | Version | Environment | Download |
 |---------|-------------|----------|
-| v2.4.2 | **Production** | [LeaveFlow-Agent-Prod-v2.4.2.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.4.2/LeaveFlow-Agent-Prod-v2.4.2.zip) |
+| v2.5.0 | **Production** | [LeaveFlow-Agent-Prod-v2.5.0.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.5.0/LeaveFlow-Agent-Prod-v2.5.0.zip) |
 | v2.3.6 | **Development** | [LeaveFlow-Agent-Dev-v2.3.6.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.6/LeaveFlow-Agent-Dev-v2.3.6.zip) |
 
 ## Features
@@ -27,6 +27,9 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 - **System Tray Integration** — Runs minimized in system tray with status icons (idle/working/paused)
 
 ## Changelog
+
+### v2.5.0 — New Production Backend
+- **Points agent to the new AWS prod backend** `lfapi2.novestrahealth.com` (replaces `api.novestrahealth.com`). All users should upgrade to this version — the previous backend will be retired.
 
 ### v2.4.2 — Version Fix & Latest Changes
 - **Fixed version display** — Agent was showing v2.0.0 instead of the actual version number
