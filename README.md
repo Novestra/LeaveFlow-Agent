@@ -6,8 +6,11 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 
 | Version | Environment | Download |
 |---------|-------------|----------|
-| v2.5.0 | **Production** | [LeaveFlow-Agent-Prod-v2.5.0.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.5.0/LeaveFlow-Agent-Prod-v2.5.0.zip) |
-| v2.3.6 | **Development** | [LeaveFlow-Agent-Dev-v2.3.6.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.6/LeaveFlow-Agent-Dev-v2.3.6.zip) |
+| **v2.5.1** | **Production** (latest) | [LeaveFlow-Agent-Prod-v2.5.1.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.5.1/LeaveFlow-Agent-Prod-v2.5.1.zip) |
+| v2.5.0 | Production (previous) | [LeaveFlow-Agent-Prod-v2.5.0.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.5.0/LeaveFlow-Agent-Prod-v2.5.0.zip) |
+| v2.3.6 | Development | [LeaveFlow-Agent-Dev-v2.3.6.zip](https://github.com/Novestra/LeaveFlow-Agent/releases/download/v2.3.6/LeaveFlow-Agent-Dev-v2.3.6.zip) |
+
+> **Always-latest link** (auto-updates on each release): [latest prod download](https://github.com/Novestra/LeaveFlow-Agent/releases/latest/download/LeaveFlow-Agent-Prod-v2.5.1.zip)
 
 ## Features
 
@@ -27,6 +30,14 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 - **System Tray Integration** — Runs minimized in system tray with status icons (idle/working/paused)
 
 ## Changelog
+
+### v2.5.1 — WPF Resurrection + Screenshot Watchdog
+- **Screenshot capture watchdog** — fixes a silent permafail loop where one `CopyFromScreen` exception (typically GDI handle exhaustion after long uptimes) would cause every subsequent capture tick to throw forever, with the only signal being log lines no one reads. Now: after 3 consecutive failures the timer is restarted; after 5 a `ScreenshotCaptureFailing` error is enqueued for server-side visibility (rate-limited to once per hour); on any successful capture the failure counter resets.
+- **Loud failures on usage uploads** — 4xx server rejections (400/403/404/409/410/422) are now treated as permanent and the batch is dropped from the local queue instead of poisoning subsequent syncs forever. 5xx and network errors stay transient and retry.
+- **Day-boundary session split** — when the server auto-finishes a stale session and starts a new one mid-sync, the agent now switches to the new session ID instead of continuing to push records to the old session.
+- **Fail-fast on missing BaseUrl** — agent refuses to start with a clear error dialog if `Api:BaseUrl` is missing from `appsettings.json`, instead of silently falling back to the decommissioned production URL.
+- **Sync button enable state** — sync button now enabled while a session is active or paused, in addition to whenever there's anything queued.
+- Codebase note: this release switches the canonical agent project back to the WPF codebase (`desktop/LeaveFlow.DesktopAgent`) — the WinForms variant was retired. Behavior, UI, and `Api.BaseUrl` are unchanged from v2.5.0.
 
 ### v2.5.0 — New Production Backend
 - **Points agent to the new AWS prod backend** `lfapi2.novestrahealth.com` (replaces `api.novestrahealth.com`). All users should upgrade to this version — the previous backend will be retired.
