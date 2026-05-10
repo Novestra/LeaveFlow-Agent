@@ -15,7 +15,6 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 ## Features
 
 - **Activity Tracking** — Monitors foreground application usage with configurable polling intervals
-- **Screenshot Capture** — Periodic screenshots synced to server for activity verification
 - **Idle Detection** — Detects inactivity with warning prompt and auto-pause after configurable threshold
 - **Session Management** — Start, pause, resume, and finish work sessions with system tray controls
 - **Mood Check Prompts** — Periodic mood surveys during active sessions
@@ -31,8 +30,7 @@ Activity monitoring and time tracking desktop agent for Windows. Part of the Lea
 
 ## Changelog
 
-### v2.5.1 — WPF Resurrection + Screenshot Watchdog
-- **Screenshot capture watchdog** — fixes a silent permafail loop where one `CopyFromScreen` exception (typically GDI handle exhaustion after long uptimes) would cause every subsequent capture tick to throw forever, with the only signal being log lines no one reads. Now: after 3 consecutive failures the timer is restarted; after 5 a `ScreenshotCaptureFailing` error is enqueued for server-side visibility (rate-limited to once per hour); on any successful capture the failure counter resets.
+### v2.5.1 — WPF Resurrection 
 - **Loud failures on usage uploads** — 4xx server rejections (400/403/404/409/410/422) are now treated as permanent and the batch is dropped from the local queue instead of poisoning subsequent syncs forever. 5xx and network errors stay transient and retry.
 - **Day-boundary session split** — when the server auto-finishes a stale session and starts a new one mid-sync, the agent now switches to the new session ID instead of continuing to push records to the old session.
 - **Fail-fast on missing BaseUrl** — agent refuses to start with a clear error dialog if `Api:BaseUrl` is missing from `appsettings.json`, instead of silently falling back to the decommissioned production URL.
